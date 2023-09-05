@@ -1,27 +1,45 @@
-# WeatherForecastAngular
+<h1 align="center"> Weather Forecast </h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
+## 💻 Sobre o projeto
 
-## Development server
+☁️ Weather Forecast permite pesquisar o clima atual em uma cidade.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+https://weatherforecastangular.netlify.app/
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## ⚙️ Funcionalidades
 
-## Build
+- [x] Pesquisar e consultar o clima das cidades:
+- [x] Apresenta diversas informações da cidade:
+- [x] Disponível para todos os dispositivos:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+## 📱 Layout da Aplicação
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+ <p text  align="center">
+<img img width= "700" src= "https://github.com/William-Dias-Marcos/Weather_Forecast/blob/main/to_readme/clima.png"> 
+</p>
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 🛠 Tecnologias
 
-## Further help
+As seguintes ferramentas foram usadas na construção do projeto:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Angular
+- TypeScript
+- Testes unitários com Jasmine
+- API de previsão do OpenWeather API
+- CSS
+- HTML
+
+---
+
+## 👨🏼‍💻 Autor
+
+William Dias Marcos
+
+ <a href = "mailto:william.diasmarcos@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white"        target="_blank"></a>
+ <a href="https://www.linkedin.com/in/william-dias-marcos-25981a192" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
