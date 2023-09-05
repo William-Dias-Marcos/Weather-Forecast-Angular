@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, untracked } from '@angular/core';
 import { WeatherData } from 'src/app/interface/weather-data';
 import { WeatherConsultationService } from 'src/app/service/weather-consultation.service';
 
@@ -10,7 +10,7 @@ import { WeatherConsultationService } from 'src/app/service/weather-consultation
 export class ClimateComponent {
 
   cityName: string = "";
-  cityWeather!: WeatherData;
+  cityWeather: WeatherData | null = null;;
   error: boolean = false
 
 
@@ -27,6 +27,7 @@ export class ClimateComponent {
       error => {
         console.error('Ocorreu um erro ao obter os dados do clima:', error);
         this.error = true;
+        this.cityWeather = null;
       }
   
     ) 

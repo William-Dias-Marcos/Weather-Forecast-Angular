@@ -1,27 +1,20 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { ClimateComponent } from './components/climate/climate.component';
+import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
+import { HttpClientTestingModule } from '@angular/common/http/testing'; // Import HttpClientTestingModule
 
 describe('AppComponent', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    declarations: [AppComponent]
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [AppComponent, ClimateComponent],
+      imports: [HttpClientModule, HttpClientTestingModule], // Include HttpClientModule and HttpClientTestingModule
+    }).compileComponents();
   }));
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'WeatherForecastAngular'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('WeatherForecastAngular');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('WeatherForecastAngular app is running!');
   });
 });

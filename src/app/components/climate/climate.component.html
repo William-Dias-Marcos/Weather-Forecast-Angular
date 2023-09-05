@@ -4,7 +4,7 @@
     <h3>Confira o clima da sua cidade:</h3>
     <div class="form-input-container">
       <input
-      type="text"
+      type="search"
       placeholder="Digite o nome da cidade"
       [(ngModel)]="cityName"
       />
@@ -14,7 +14,7 @@
     </div>
   </div> 
 
-  <div id="weather-data" *ngIf="cityWeather">
+  <div id="weather-data" *ngIf="cityWeather && !error">
 
     <h3><i class="fa-solid fa-location-dot"></i> <span>{{ cityWeather.name }} , {{ cityWeather.sys.country }}</span></h3>
     <p id="temperature"><span>{{ cityWeather.main.temp | number:'1.0-0'}}</span>&deg;C</p>
