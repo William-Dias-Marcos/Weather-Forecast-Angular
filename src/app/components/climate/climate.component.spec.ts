@@ -2,8 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ClimateComponent } from './climate.component';
 import { WeatherConsultationService } from 'src/app/service/weather-consultation.service';
 import { Observable, of } from 'rxjs';
-import { HttpClientTestingModule } from '@angular/common/http/testing'; // Importar o HttpClientTestingModule
+import { provideHttpClientTesting } from '@angular/common/http/testing'; // Importar o HttpClientTestingModule
 import { WeatherData } from 'src/app/interface/weather-data';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ClimateComponent', () => {
   let component: ClimateComponent;
@@ -12,10 +13,10 @@ describe('ClimateComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ClimateComponent],
-      providers: [WeatherConsultationService], // Fornecer qualquer serviço necessário
-      imports: [HttpClientTestingModule], // Importar o HttpClientTestingModule
-    });
+    declarations: [ClimateComponent],
+    imports: [],
+    providers: [WeatherConsultationService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+});
 
     fixture = TestBed.createComponent(ClimateComponent);
     component = fixture.componentInstance;

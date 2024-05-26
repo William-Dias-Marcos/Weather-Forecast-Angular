@@ -102,10 +102,11 @@
 // });
 
 import { TestBed, waitForAsync, fakeAsync, tick } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { WeatherConsultationService } from 'src/app/service/weather-consultation.service';
 import { environment } from 'src/environments/environment';
 import { WeatherData } from 'src/app/interface/weather-data';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('WeatherConsultationService', () => {
   let service: WeatherConsultationService;
@@ -113,9 +114,9 @@ describe('WeatherConsultationService', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [WeatherConsultationService]
-    }).compileComponents();
+    imports: [],
+    providers: [WeatherConsultationService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+}).compileComponents();
 
     service = TestBed.inject(WeatherConsultationService);
     httpTestingController = TestBed.inject(HttpTestingController);
