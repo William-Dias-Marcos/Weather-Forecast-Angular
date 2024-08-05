@@ -1,32 +1,42 @@
 <section class="container">
-
   <div class="form">
     <h3>Confira o clima da sua cidade:</h3>
     <div class="form-input-container">
       <input
-      type="search"
-      placeholder="Digite o nome da cidade"
-      [(ngModel)]="cityName"
+        type="search"
+        placeholder="Digite o nome da cidade"
+        [(ngModel)]="cityName"
       />
       <button (click)="localClimate(cityName)" id="search">
         <i class="fa-solid fa-magnifying-glass"></i>
       </button>
     </div>
-  </div> 
+  </div>
 
-  <div id="weather-data" *ngIf="cityWeather && !error">
-
-    <h3><i class="fa-solid fa-location-dot"></i> <span>{{ cityWeather.name }} , {{ cityWeather.sys.country }}</span></h3>
-    <p id="temperature"><span>{{ cityWeather.main.temp | number:'1.0-0'}}</span>&deg;C</p>
+  @if (cityWeather && !error) {
+  <div id="weather-data">
+    <h3>
+      <i class="fa-solid fa-location-dot"></i>
+      <span>{{ cityWeather.name }} , {{ cityWeather.sys.country }}</span>
+    </h3>
+    <p id="temperature">
+      <span>{{ cityWeather.main.temp | number : "1.0-0" }}</span
+      >&deg;C
+    </p>
 
     <div id="description-container">
-      <p id="description">{{ cityWeather.weather[0].description}}</p>
-      <img src="http://openweathermap.org/img/wn/{{cityWeather.weather[0].icon}}.png" alt="Condições atuais">
+      <p id="description">{{ cityWeather.weather[0].description }}</p>
+      <img
+        src="http://openweathermap.org/img/wn/{{
+          cityWeather.weather[0].icon
+        }}.png"
+        alt="Condições atuais"
+      />
     </div>
 
     <div id="details-container">
       <p>
-        <i class="fa-solid fa-droplet"></i> 
+        <i class="fa-solid fa-droplet"></i>
         <span>{{ cityWeather.main.humidity }}%</span>
       </p>
       <p>
@@ -34,24 +44,29 @@
         <span>{{ cityWeather.wind.speed }} km/h</span>
       </p>
     </div>
-
   </div>
-
-  <div *ngIf="error" id="error-message">
+  } @else if (loading && !error){
+  <div id="error-message">
+    <div id="loader">
+      <i class="fa-solid fa-spinner"></i>
+    </div>
+    <p>Carregando...</p>
+  </div>
+  } @else if (error) {
+  <div id="error-message">
     <div id="loader">
       <i class="fa-solid fa-spinner"></i>
     </div>
     <p>Não foi possível encontrar a sua cidade, verifique o nome da cidade.</p>
   </div>
-   
-<div id="suggestions">
-    <button (click)="localClimate('porto alegre')">Porto Alegre</button>
-    <button (click)="localClimate('taquara')">Taquara</button>
-    <button (click)="localClimate('são paulo')">São Paulo</button>
-    <button (click)="localClimate('rio de janeiro')">Rio de Janeiro</button>
-    <button (click)="localClimate('buenos aires')">Buenos Aires</button>
-    <button (click)="localClimate('montevidéu')">Montevidéu</button>
-    <button (click)="localClimate('londres')">Londres</button>
-    <button (click)="localClimate('paris')">Paris</button>
+  }
+
+  <div id="suggestions">
+    @for (suggestion of suggestions; track $index) {
+    <button-city
+      (click)="localClimate(suggestion.city)"
+      [text]="suggestion.city"
+    ></button-city>
+    }
   </div>
 </section>
