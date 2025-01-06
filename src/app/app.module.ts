@@ -7,10 +7,11 @@ import {
   withInterceptorsFromDi,
 } from '@angular/common/http';
 
-import { AppComponent } from './app.component';
-import { ClimateComponent } from './components/climate/climate.component';
-import { HeaderComponent } from './components/header/header.component';
 import { AppRoutingModule } from './app.routing.module';
+
+import { AppComponent } from './app.component';
+
+import { HeaderComponent } from './components/header/header.component';
 @NgModule({
   declarations: [AppComponent],
   bootstrap: [AppComponent],
@@ -19,7 +20,6 @@ import { AppRoutingModule } from './app.routing.module';
     BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
-    ClimateComponent,
     HeaderComponent,
   ],
   providers: [provideHttpClient(withInterceptorsFromDi())],
