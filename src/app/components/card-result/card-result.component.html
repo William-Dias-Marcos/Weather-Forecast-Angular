@@ -1,0 +1,51 @@
+@if (cityWeather()) {
+
+<div class="card">
+  <p-card>
+    <div class="flex justify-content-between px-2">
+      <p class="text-sm">21:08</p>
+      <p class="text-sm">25/11/2024</p>
+    </div>
+
+    <h4 class="flex justify-content-center gap-1 text-xl">
+      <i class="fa-solid fa-location-dot"></i>
+      <span>{{ cityWeather().name }} , {{ cityWeather().sys.country }}</span>
+    </h4>
+
+    <p class="flex justify-content-center text-6xl font-bold m-5">
+      <span>{{ cityWeather().main.temp | number : "1.0-0" }} &deg;C</span>
+    </p>
+
+    <div class="flex align-items-center justify-content-center">
+      <p class="text-base font-bold">
+        {{ cityWeather().weather[0].description | capitalizeWords }}
+      </p>
+      <img
+        src="http://openweathermap.org/img/wn/{{
+          cityWeather().weather[0].icon
+        }}.png"
+        alt="Condições atuais"
+      />
+    </div>
+
+    <div>
+      <div class="flex justify-content-center gap-4">
+        <p class="text-base">
+          <i class="fa-solid fa-droplet pr-1"></i>
+          <span>{{ cityWeather().main.humidity }}%</span>
+        </p>
+        <p class="text-base">
+          <i class="fa-solid fa-wind pr-1"></i>
+          <span>{{ cityWeather().wind.speed }} km/h</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="flex justify-content-between">
+      <p class="text-sm">Lat: {{ cityWeather().coord.lat }}</p>
+      <p class="text-sm">Long: {{ cityWeather().coord.lon }}</p>
+    </div>
+  </p-card>
+</div>
+
+}
