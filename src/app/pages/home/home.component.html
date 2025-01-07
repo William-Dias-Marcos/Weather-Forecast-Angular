@@ -3,8 +3,7 @@
 <div class="flex justify-content-center align-items-center py-3">
   <app-card-result [cityWeather]="cityWeather"></app-card-result>
 </div>
-<div class="pb-3">
-  @if (cityWeeklyWeather) {
-  <app-table-result [list]="cityWeeklyWeather.list"></app-table-result>
-  }
-</div>
+
+@if (cityWeeklyWeather) {
+<app-table-result [list]="cityWeeklyWeather.list"></app-table-result>
+}

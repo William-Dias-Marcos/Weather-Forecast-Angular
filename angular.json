@@ -23,12 +23,12 @@
             "styles": [
               "src/styles.css",
               {
-                "input": "primeng/resources/themes/soho-dark/theme.css",
+                "input": "primeng/resources/themes/viva-dark/theme.css",
                 "bundleName": "dark",
                 "inject": false
               },
               {
-                "input": "primeng/resources/themes/soho-light/theme.css",
+                "input": "primeng/resources/themes/viva-light/theme.css",
                 "bundleName": "light",
                 "inject": false
               },
