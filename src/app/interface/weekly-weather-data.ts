@@ -1,11 +1,10 @@
+import { CityCoordinates } from './city-coordinates';
+
 export interface WeeklyWeatherData {
   city: {
     id: number;
     name: string;
-    coord: {
-      lon: number;
-      lat: number;
-    };
+    coord: CityCoordinates;
     country: string;
     population: number;
     timezone: number;

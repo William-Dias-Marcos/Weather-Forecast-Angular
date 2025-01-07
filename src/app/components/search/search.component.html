@@ -1,0 +1,13 @@
+<div class="flex justify-content-between gap-2">
+  <div class="flex flex-column gap-2 w-full">
+    <input
+      pInputText
+      aria-describedby="city-help"
+      [(ngModel)]="city"
+      [autofocus]="true"
+    />
+    <small id="city-help"> {{ messsageHelp }} </small>
+  </div>
+
+  <p-button icon="pi pi-search" [loading]="loading" (onClick)="search(city)" />
+</div>
