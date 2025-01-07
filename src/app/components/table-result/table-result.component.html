@@ -1,41 +1,46 @@
 <p-card>
-  <p-table
-    [value]="list"
-    selectionMode="single"
-    [style]="{
-      margin: 'auto',
-      'min-width': '700px',
-      'max-width': '1000px'
-    }"
-  >
-    <ng-template pTemplate="header">
-      <tr>
-        <th class="text-center">Data</th>
-        <th class="text-center">Previsão</th>
-        <th class="text-center">Máx / Mín</th>
-        <th class="text-center">Descrição</th>
-        <th class="text-center">Umidade</th>
-      </tr>
-    </ng-template>
+  <div class="overflow-container">
+    <p-table
+      [value]="list"
+      selectionMode="single"
+      [style]="{
+        margin: 'auto',
+        'min-width': '700px',
+        'max-width': '1000px'
+      }"
+      class="scroll-horizontal"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th class="text-center">Data</th>
+          <th class="text-center">Previsão</th>
+          <th class="text-center">Máx / Mín</th>
+          <th class="text-center">Descrição</th>
+          <th class="text-center">Umidade</th>
+        </tr>
+      </ng-template>
 
-    <ng-template pTemplate="body" let-day>
-      <tr [pSelectableRow]="day">
-        <td class="text-center">{{ day.dt * 1000 | date : "dd/MM/yyyy" }}</td>
-        <td class="p-0 text-center">
-          <img
-            style="height: 50px"
-            src="https://openweathermap.org/img/wn/{{
-              day.weather[0].icon
-            }}@2x.png"
-            [alt]="day.weather[0].description"
-          />
-        </td>
-        <td class="text-center">{{ day.temp.max }}°C / {{ day.temp.min }}°C</td>
-        <td class="text-center">
-          {{ day.weather[0].description | capitalizeWords }}
-        </td>
-        <td class="text-center">{{ day.humidity }}%</td>
-      </tr>
-    </ng-template>
-  </p-table>
+      <ng-template pTemplate="body" let-day>
+        <tr [pSelectableRow]="day">
+          <td class="text-center">{{ day.dt * 1000 | date : "dd/MM/yyyy" }}</td>
+          <td class="p-0 text-center">
+            <img
+              style="height: 50px"
+              src="https://openweathermap.org/img/wn/{{
+                day.weather[0].icon
+              }}@2x.png"
+              [alt]="day.weather[0].description"
+            />
+          </td>
+          <td class="text-center">
+            {{ day.temp.max }}°C / {{ day.temp.min }}°C
+          </td>
+          <td class="text-center">
+            {{ day.weather[0].description | capitalizeWords }}
+          </td>
+          <td class="text-center">{{ day.humidity }}%</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
 </p-card>

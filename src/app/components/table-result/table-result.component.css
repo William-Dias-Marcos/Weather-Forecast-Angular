@@ -1,3 +1,18 @@
-:host ::ng-deep .p-datatable-wrapper {
-  overflow-x: auto; /* Ativa o scroll horizontal */
+.overflow-container {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.scroll-horizontal {
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: block;
+  white-space: nowrap;
+}
+
+.scroll-horizontal {
+  scrollbar-width: none;
+}
+.scroll-horizontal::-webkit-scrollbar {
+  display: none;
 }
