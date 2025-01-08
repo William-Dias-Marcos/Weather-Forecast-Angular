@@ -1,43 +1,31 @@
-<h1 align="center"> Weather Forecast </h1>
+<h1 align="center"> Weather Forecast Angular</h1>
 
-## 💻 Sobre o projeto
+### 💻 Sobre o projeto
 
-☁️ Weather Forecast permite pesquisar o clima atual em uma cidade.
+Weather Forecast permite pesquisar o clima de uma cidade.
 
-https://weatherforecastangular.netlify.app/
+![image](https://github.com/user-attachments/assets/2950bfe5-83e5-4d19-ba6c-324272d6c82b)
 
----
-
-## ⚙️ Funcionalidades
+### ⚙️ Funcionalidades
 
 - [x] Pesquisar e consultar o clima das cidades:
 - [x] Apresenta diversas informações da cidade:
 - [x] Disponível para todos os dispositivos:
 
----
-
-## 📱 Layout da Aplicação
-
- <p text  align="center">
-<img img width= "700" src= "https://github.com/William-Dias-Marcos/Weather_Forecast/blob/main/to_readme/clima.png"> 
-</p>
-
----
-
-## 🛠 Tecnologias
+### 🛠 Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
 - Angular
 - TypeScript
-- Testes unitários com Jasmine
-- API de previsão do OpenWeather API
+- PrimeNG
 - CSS
 - HTML
+- API de previsão do OpenWeather API
 
 ---
 
-## 👨🏼‍💻 Autor
+### 👨🏼‍💻 Autor
 
 William Dias Marcos
 
