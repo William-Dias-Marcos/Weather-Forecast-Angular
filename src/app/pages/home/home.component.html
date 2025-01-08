@@ -1,9 +1,22 @@
 <app-header (search)="getWeatherData()"></app-header>
 
+@if (cityWeather) {
+
 <div class="flex justify-content-center align-items-center py-3">
   <app-card-result [cityWeather]="cityWeather"></app-card-result>
 </div>
 
-@if (cityWeeklyWeather) {
+} @if (cityWeeklyWeather){
+
 <app-table-result [list]="cityWeeklyWeather.list"></app-table-result>
+
+} @if (loading) {
+
+<div
+  class="flex justify-content-center align-items-center"
+  style="min-height: 80vh"
+>
+  <app-spinner />
+</div>
+
 }

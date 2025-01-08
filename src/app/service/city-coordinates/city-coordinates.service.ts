@@ -5,14 +5,13 @@ import { CityCoordinates } from 'src/app/interface/city-coordinates';
   providedIn: 'root',
 })
 export class CityCoordinatesService {
-  private coordinates!: CityCoordinates;
+  private coordinates: CityCoordinates = {
+    lat: -30.0331,
+    lon: -51.23,
+  };
 
   getCoordinates(): CityCoordinates | undefined {
-    if (this.coordinates) {
-      return this.coordinates;
-    } else {
-      return undefined;
-    }
+    return this.coordinates;
   }
 
   setCoordinates(coordinates: CityCoordinates): void {
