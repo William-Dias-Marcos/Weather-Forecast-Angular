@@ -23,8 +23,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - HTML
 - API de previsão do OpenWeather API
 
----
-
 ### 👨🏼‍💻 Autor
 
 William Dias Marcos
