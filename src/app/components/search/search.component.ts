@@ -2,7 +2,7 @@ import { FormsModule } from '@angular/forms';
 import { Component, inject } from '@angular/core';
 
 import { ClimateService } from 'src/app/service/climate/climate.service';
-import { CityCoordinatesService } from 'src/app/service/city-coordinates/city-coordinates.service';
+import { StorageService } from 'src/app/service/storage/storage.service';
 import { WeatherData } from 'src/app/interface/weather-data';
 
 import { InputTextModule } from 'primeng/inputtext';
@@ -25,7 +25,7 @@ export class SearchComponent {
   public cityWeather!: WeatherData;
 
   private _climateService = inject(ClimateService);
-  private _cityCoordinatesService = inject(CityCoordinatesService);
+  private _storageService = inject(StorageService);
 
   public _ref = inject(DynamicDialogRef);
 
@@ -34,8 +34,14 @@ export class SearchComponent {
     this._climateService.fetchWeatherByLocationName(city).subscribe({
       next: (resp) => {
         this.cityWeather = resp;
-        this._cityCoordinatesService.setCoordinates(resp.coord);
-        console.log(resp.coord);
+
+        let city = {
+          lat: resp.coord.lat,
+          lon: resp.coord.lon,
+          city: resp.name,
+        };
+
+        this._storageService.add(city);
       },
       error: (err) => {
         console.error('Erro ao buscar o clima:', err);
