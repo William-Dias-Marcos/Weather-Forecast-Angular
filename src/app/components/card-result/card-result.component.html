@@ -7,8 +7,8 @@
       <p class="text-sm">{{ date }}</p>
     </div>
 
-    <h4 class="flex justify-content-center gap-1 text-xl">
-      <i class="fa-solid fa-location-dot"></i>
+    <h4 class="flex align-items-center justify-content-center gap-1 text-xl">
+      <i class="pi pi-map-marker"></i>
       <span>{{ cityWeather().name }} , {{ cityWeather().sys.country }}</span>
     </h4>
 
@@ -30,14 +30,8 @@
 
     <div>
       <div class="flex justify-content-center gap-4">
-        <p class="text-base">
-          <i class="fa-solid fa-droplet pr-1"></i>
-          <span>{{ cityWeather().main.humidity }}%</span>
-        </p>
-        <p class="text-base">
-          <i class="fa-solid fa-wind pr-1"></i>
-          <span>{{ cityWeather().wind.speed }} km/h</span>
-        </p>
+        <p class="text-base">{{ cityWeather().main.humidity }}%</p>
+        <p class="text-base">{{ cityWeather().wind.speed }} km/h</p>
       </div>
     </div>
 
