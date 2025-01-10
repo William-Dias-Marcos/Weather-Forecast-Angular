@@ -8,6 +8,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { SearchComponent } from '../search/search.component';
+import { SearchHistoryComponent } from '../search-history/search-history.component';
 
 @Component({
   selector: 'app-header',
@@ -24,13 +25,13 @@ export class HeaderComponent {
     {
       label: 'Pesquisar',
       icon: 'pi pi-search',
-      command: () => this.showDlg(),
+      command: () => this.showDlgSearch(),
     },
-    // {
-    //   label: 'Favoritos',
-    //   icon: 'pi pi-star',
-    //   command: () => this.showDlg(),
-    // },
+    {
+      label: 'Histórico',
+      icon: 'pi pi-history',
+      command: () => this.showDlgHistory(),
+    },
   ];
 
   checked: boolean = true;
@@ -49,13 +50,29 @@ export class HeaderComponent {
     this._themeService.setTheme(theme);
   }
 
-  showDlg() {
+  showDlgSearch() {
     this.ref = this._dialogService.open(SearchComponent, {
       header: 'Pesquisar',
       width: '700px',
       modal: true,
       breakpoints: {
         '960px': '70vw',
+        '640px': '90vw',
+      },
+    });
+
+    this.ref.onClose.subscribe(() => {
+      this.search.emit();
+    });
+  }
+
+  showDlgHistory() {
+    this.ref = this._dialogService.open(SearchHistoryComponent, {
+      header: 'Histórico',
+      width: '500px',
+      modal: true,
+      breakpoints: {
+        '960px': '60vw',
         '640px': '90vw',
       },
     });
