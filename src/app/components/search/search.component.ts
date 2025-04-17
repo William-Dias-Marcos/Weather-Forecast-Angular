@@ -10,11 +10,10 @@ import { ButtonModule } from 'primeng/button';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
-  selector: 'app-search',
-  standalone: true,
-  imports: [FormsModule, InputTextModule, ButtonModule],
-  templateUrl: './search.component.html',
-  styleUrl: './search.component.css',
+    selector: 'app-search',
+    imports: [FormsModule, InputTextModule, ButtonModule],
+    templateUrl: './search.component.html',
+    styleUrl: './search.component.css'
 })
 export class SearchComponent {
   public city: string = '';

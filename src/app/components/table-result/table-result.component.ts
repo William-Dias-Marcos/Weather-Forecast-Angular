@@ -8,17 +8,16 @@ import { ListWeeklyWeatherData } from 'src/app/interface/weekly-weather-data';
 import { CapitalizeWordsPipe } from 'src/app/pipes/capitalize-words/capitalize-words.pipe';
 
 @Component({
-  selector: 'app-table-result',
-  standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    TableModule,
-    CardModule,
-    CapitalizeWordsPipe,
-  ],
-  templateUrl: './table-result.component.html',
-  styleUrl: './table-result.component.css',
+    selector: 'app-table-result',
+    imports: [
+        CommonModule,
+        FormsModule,
+        TableModule,
+        CardModule,
+        CapitalizeWordsPipe,
+    ],
+    templateUrl: './table-result.component.html',
+    styleUrl: './table-result.component.css'
 })
 export class TableResultComponent {
   @Input() list!: ListWeeklyWeatherData[];

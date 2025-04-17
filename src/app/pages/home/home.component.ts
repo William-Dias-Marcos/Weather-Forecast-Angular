@@ -11,17 +11,16 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
 import { SpinnerComponent } from 'src/app/components/spinner/spinner.component';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [
-    CommonModule,
-    HeaderComponent,
-    CardResultComponent,
-    TableResultComponent,
-    SpinnerComponent,
-  ],
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+    selector: 'app-home',
+    imports: [
+        CommonModule,
+        HeaderComponent,
+        CardResultComponent,
+        TableResultComponent,
+        SpinnerComponent,
+    ],
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
   public cityWeather!: WeatherData;

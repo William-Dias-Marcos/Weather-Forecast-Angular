@@ -10,11 +10,10 @@ import { StorageService } from 'src/app/service/storage/storage.service';
 import { CityCoordinatesStorage } from 'src/app/interface/city-coordinates';
 
 @Component({
-  selector: 'app-search-history',
-  standalone: true,
-  imports: [TableModule, ButtonModule, TooltipModule, ScrollPanelModule],
-  templateUrl: './search-history.component.html',
-  styleUrl: './search-history.component.css',
+    selector: 'app-search-history',
+    imports: [TableModule, ButtonModule, TooltipModule, ScrollPanelModule],
+    templateUrl: './search-history.component.html',
+    styleUrl: './search-history.component.css'
 })
 export class SearchHistoryComponent implements OnInit {
   public researchHistory!: CityCoordinatesStorage[];

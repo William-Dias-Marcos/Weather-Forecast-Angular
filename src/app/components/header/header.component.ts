@@ -12,7 +12,6 @@ import { SearchHistoryComponent } from '../search-history/search-history.compone
 
 @Component({
   selector: 'app-header',
-  standalone: true,
   imports: [MenubarModule, FormsModule, InputSwitchModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
@@ -35,19 +34,17 @@ export class HeaderComponent {
   ];
 
   checked: boolean = true;
-  selectedTheme: string = 'dark';
   _themeService: ThemeService = inject(ThemeService);
 
   _dialogService = inject(DialogService);
   ref!: DynamicDialogRef;
 
   ngOnInit() {
-    this._themeService.setTheme(this.selectedTheme);
+    this._themeService.toggleTheme();
   }
 
-  onThemeChange(theme: string): void {
-    this.selectedTheme = theme;
-    this._themeService.setTheme(theme);
+  onThemeChange(): void {
+    this._themeService.toggleTheme();
   }
 
   showDlgSearch() {
@@ -59,6 +56,7 @@ export class HeaderComponent {
         '960px': '70vw',
         '640px': '90vw',
       },
+      closable: true,
     });
 
     this.ref.onClose.subscribe(() => {
@@ -75,6 +73,7 @@ export class HeaderComponent {
         '960px': '60vw',
         '640px': '90vw',
       },
+      closable: true,
     });
 
     this.ref.onClose.subscribe(() => {
