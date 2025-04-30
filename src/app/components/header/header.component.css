@@ -1,0 +1,7 @@
+:host ::ng-deep .p-menubar {
+    background-color: var(--p-card-background);
+}
+
+:host ::ng-deep .p-card-body {
+    padding: 0;
+}

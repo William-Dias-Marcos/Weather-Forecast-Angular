@@ -5,6 +5,7 @@ import { ThemeService } from 'src/app/service/theme/theme.service';
 import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { Card } from 'primeng/card';
 
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { SearchComponent } from '../search/search.component';
@@ -12,7 +13,7 @@ import { SearchHistoryComponent } from '../search-history/search-history.compone
 
 @Component({
   selector: 'app-header',
-  imports: [MenubarModule, FormsModule, InputSwitchModule],
+  imports: [MenubarModule, FormsModule, InputSwitchModule, Card],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
   providers: [DialogService],

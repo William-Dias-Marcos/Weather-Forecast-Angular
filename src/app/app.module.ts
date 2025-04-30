@@ -13,6 +13,10 @@ import { AppComponent } from './app.component';
 
 import { providePrimeNG } from 'primeng/config';
 import Material from '@primeng/themes/material';
+import Aura from '@primeng/themes/aura';
+import Lara from '@primeng/themes/lara';
+
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +31,7 @@ import Material from '@primeng/themes/material';
     provideHttpClient(withInterceptorsFromDi()),
     providePrimeNG({
       theme: {
-        preset: Material,
+        preset: Lara,
         options: {
           darkModeSelector: '.my-app-dark',
         },
