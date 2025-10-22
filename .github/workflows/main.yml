@@ -13,9 +13,9 @@ jobs:
         uses: actions/checkout@v4 # Clona o repostório para ter acesso a pasta do projeto no servidor
 
       - name: 📩 Set up Node.js
-        uses: actions/setup-node@v4 # Instala o node na versão 21
+        uses: actions/setup-node@v4 # Instala o node na versão 22
         with:
-          node-version: "21"
+          node-version: "22"
 
       - name: 📥 Installing Dependencies
         run: npm install
