@@ -1,12 +1,10 @@
 <p-card>
-
-    <p-menubar [model]="items">
-      <ng-template pTemplate="end">
-        <p-inputSwitch
-          [(ngModel)]="checked"
-          (click)="onThemeChange()"
-        ></p-inputSwitch>
-      </ng-template>
-    </p-menubar>
- 
+  <p-menubar [model]="items">
+    <ng-template pTemplate="end">
+      <p-toggleswitch
+        [(ngModel)]="checked"
+        (click)="onThemeChange()"
+      ></p-toggleswitch>
+    </ng-template>
+  </p-menubar>
 </p-card>

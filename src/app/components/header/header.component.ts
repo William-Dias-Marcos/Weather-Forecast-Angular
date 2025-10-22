@@ -4,7 +4,7 @@ import { ThemeService } from 'src/app/service/theme/theme.service';
 
 import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
-import { InputSwitchModule } from 'primeng/inputswitch';
+import { ToggleSwitchModule } from 'primeng/toggleswitch';
 import { Card } from 'primeng/card';
 
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
@@ -13,7 +13,7 @@ import { SearchHistoryComponent } from '../search-history/search-history.compone
 
 @Component({
   selector: 'app-header',
-  imports: [MenubarModule, FormsModule, InputSwitchModule, Card],
+  imports: [MenubarModule, FormsModule, ToggleSwitchModule, Card],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
   providers: [DialogService],
@@ -38,7 +38,7 @@ export class HeaderComponent {
   _themeService: ThemeService = inject(ThemeService);
 
   _dialogService = inject(DialogService);
-  ref!: DynamicDialogRef;
+  ref: DynamicDialogRef | undefined;
 
   ngOnInit() {
     this._themeService.toggleTheme();
@@ -49,7 +49,7 @@ export class HeaderComponent {
   }
 
   showDlgSearch() {
-    this.ref = this._dialogService.open(SearchComponent, {
+    const dialogRef = this._dialogService.open(SearchComponent, {
       header: 'Pesquisar',
       width: '700px',
       modal: true,
@@ -60,13 +60,16 @@ export class HeaderComponent {
       closable: true,
     });
 
-    this.ref.onClose.subscribe(() => {
-      this.search.emit();
-    });
+    if (dialogRef) {
+      this.ref = dialogRef;
+      this.ref.onClose.subscribe(() => {
+        this.search.emit();
+      });
+    }
   }
 
   showDlgHistory() {
-    this.ref = this._dialogService.open(SearchHistoryComponent, {
+    const dialogRef = this._dialogService.open(SearchHistoryComponent, {
       header: 'Histórico',
       width: '500px',
       modal: true,
@@ -77,8 +80,11 @@ export class HeaderComponent {
       closable: true,
     });
 
-    this.ref.onClose.subscribe(() => {
-      this.search.emit();
-    });
+    if (dialogRef) {
+      this.ref = dialogRef;
+      this.ref.onClose.subscribe(() => {
+        this.search.emit();
+      });
+    }
   }
 }
